@@ -108,10 +108,25 @@ class CrocMonitor:
         protection=1
         return point, protection
 
-    def minTime(self,a,b):
-    #return list of points trevelled and the time required
-        path=[]
-        return path
+###Code By Jenish Oli for Question 3
+###Calculate the minimum time required for Croc to dravel
+
+    def minTime(self,a,b,type_of_the_path): 
+###Lets us define type of path for both land and water
+        vel=0
+###The crocs are not moving state then velocity is 0
+        if type_of_the_path=='W':
+             vel=6
+###If the crocs are travelling on Water 'W' then the velocity of their distance travelled is 6km/hr.
+        if type_of_the_path=='L':
+            vel=16
+###If the crocs are travelling on Land 'L' then the velocity of their distance travelled is 6km/hr.
+        d2=0
+###creating a list for j to loop the value of lenth of path history
+        for j in range(len(self.path_history_new)-1):
+            d2=d2+self.distancematrix[self.path_history_new[j],self.path_history_new[j+1]]
+###Using distance matrix function for path history of j and j+1
+        return self.path_history_new
 
     def findScope(self, a, b):
         #provide start and end point of search, collect points to consider in search
